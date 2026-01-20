@@ -1,0 +1,279 @@
+/* 전역 스타일 초기화 및 설정 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', 'Malgun Gothic', -apple-system, BlinkMacSystemFont, 
+    'Apple SD Gothic Neo', sans-serif;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  min-height: 100vh;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* 스크롤바 스타일 */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #667eea;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #5568d3;
+}
+
+/* 메인 앱 컨테이너 */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 40px 30px;
+  flex: 1;
+  width: 100%;
+}
+
+/* 헤더 */
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.app-title {
+  font-size: 36px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+}
+
+.add-todo-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  transition: all 0.3s ease;
+}
+
+.add-todo-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.btn-icon {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* 레이아웃 */
+.app-layout {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 30px;
+  align-items: start;
+}
+
+.sidebar {
+  position: sticky;
+  top: 20px;
+}
+
+.main-content {
+  min-height: 400px;
+}
+
+/* 푸터 */
+.app-footer {
+  background: white;
+  padding: 20px;
+  text-align: center;
+  border-top: 1px solid #e8e8e8;
+  margin-top: 40px;
+}
+
+.app-footer p {
+  margin: 0;
+  font-size: 14px;
+  color: #999;
+}
+
+/* 반응형 디자인 - 태블릿 */
+@media (max-width: 1024px) {
+  .app-layout {
+    grid-template-columns: 250px 1fr;
+    gap: 20px;
+  }
+}
+
+/* 반응형 디자인 - 모바일 */
+@media (max-width: 768px) {
+  .app-container {
+    padding: 20px 15px;
+  }
+
+  .app-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 15px;
+  }
+
+  .app-title {
+    font-size: 28px;
+    text-align: center;
+  }
+
+  .add-todo-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .app-layout {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .sidebar {
+    position: static;
+  }
+}
+
+/* 반응형 디자인 - 작은 모바일 */
+@media (max-width: 480px) {
+  .app-container {
+    padding: 15px 10px;
+  }
+
+  .app-title {
+    font-size: 24px;
+  }
+
+  .add-todo-btn {
+    padding: 12px 20px;
+    font-size: 15px;
+  }
+
+  .btn-icon {
+    font-size: 20px;
+  }
+}
+
+/* 애니메이션 효과 */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.app-container > * {
+  animation: slideIn 0.5s ease;
+}
+
+/* 부드러운 전환 효과 */
+button, a, input, textarea, select {
+  transition: all 0.3s ease;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+/* 접근성 향상 - 포커스 스타일 */
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 3px solid #667eea;
+  outline-offset: 2px;
+}
+
+/* 선택 불가능한 텍스트 */
+.app-title, .btn-icon {
+  user-select: none;
+}
+
+/* 로딩 상태 (필요시 사용) */
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  font-size: 18px;
+  color: #667eea;
+}
+
+/* 에러 상태 (필요시 사용) */
+.error {
+  background: #ffebee;
+  color: #c62828;
+  padding: 15px;
+  border-radius: 10px;
+  margin: 20px 0;
+  text-align: center;
+}
+
+/* 성공 메시지 (필요시 사용) */
+.success {
+  background: #e8f5e9;
+  color: #2e7d32;
+  padding: 15px;
+  border-radius: 10px;
+  margin: 20px 0;
+  text-align: center;
+}
+
+/* 다크 모드 대응 준비 (필요시 활성화) */
+@media (prefers-color-scheme: dark) {
+  /* 다크 모드 스타일은 필요시 추가 */
+}
+
+/* 프린트 스타일 */
+@media print {
+  .app-header,
+  .add-todo-btn,
+  .todo-action-btn,
+  .sidebar,
+  .app-footer {
+    display: none;
+  }
+
+  body {
+    background: white;
+  }
+
+  .app-container {
+    max-width: 100%;
+  }
+}

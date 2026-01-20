@@ -1,0 +1,146 @@
+.todo-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  background: white;
+  border-radius: 12px;
+  padding: 18px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.todo-item:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.todo-item.completed {
+  opacity: 0.6;
+}
+
+.todo-item.completed .todo-title {
+  text-decoration: line-through;
+  color: #999;
+}
+
+.todo-color-bar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+}
+
+.todo-checkbox-wrapper {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.todo-checkbox {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: #667eea;
+}
+
+.todo-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.todo-title {
+  margin: 0 0 8px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  word-wrap: break-word;
+}
+
+.todo-memo {
+  margin: 0 0 10px 0;
+  font-size: 14px;
+  color: #666;
+  line-height: 1.5;
+  word-wrap: break-word;
+}
+
+.todo-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.todo-date {
+  font-size: 13px;
+  color: #999;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.todo-folder {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #333;
+  opacity: 0.8;
+}
+
+.todo-actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.todo-action-btn {
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: #f8f9fa;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.todo-action-btn:hover {
+  transform: scale(1.1);
+}
+
+.todo-action-btn.edit:hover {
+  background: #e3f2fd;
+}
+
+.todo-action-btn.delete:hover {
+  background: #ffebee;
+}
+
+@media (max-width: 480px) {
+  .todo-item {
+    padding: 15px;
+    gap: 12px;
+  }
+
+  .todo-title {
+    font-size: 15px;
+  }
+
+  .todo-memo {
+    font-size: 13px;
+  }
+
+  .todo-action-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+  }
+}
